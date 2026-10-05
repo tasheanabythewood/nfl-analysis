@@ -1,0 +1,31 @@
+# Conda environment for the NFL fourth-down decision project.
+#
+# Create it once:      conda env create -f environment.yml
+# Activate it always:  conda activate nfl4th
+#
+# A dedicated environment, never base: the library versions that produced the
+# results are pinned here, so someone else can reproduce them.
+
+name: nfl4th
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.12
+  - pandas>=2.0
+  - pyarrow>=14.0
+  - requests>=2.28
+  - matplotlib>=3.7
+  - scipy>=1.11
+  # OpenBLAS rather than MKL: the MKL 2026 build failed to load inside
+  # scipy.linalg on this machine (Windows error 0xc06d007f).
+  - libblas=*=*openblas
+  - statsmodels>=0.14
+  - spyder-kernels
+  - jupyterlab
+  - ipykernel
+  # Everything from conda-forge, nothing from pip, so one package manager
+  # owns every compiled library.
+  - python-duckdb>=1.0
+  - pyreadr>=0.5   # reads nfl4th's .rds file, so no R install is needed

@@ -1,0 +1,52 @@
+{
+  "snapshot_date": "2026-10-04",
+  "seasons": [
+    2014,
+    2025
+  ],
+  "tau_primary_pp": 2.0,
+  "headline_snaps": 25318,
+  "headline_punts": 22560,
+  "headline_go": 2758,
+  "should_go_punts": 2146,
+  "should_go_punt_share": 0.09512411347517731,
+  "should_go_punt_share_ci": [
+    0.09114808635406786,
+    0.09914459486229033
+  ],
+  "go_better_snaps": 4085,
+  "punt_rate_when_go_better": 0.5253365973072215,
+  "punt_better_snaps": 7560,
+  "go_rate_when_punt_better": 0.002777777777777778,
+  "asymmetry_pts": 52.25588195294437,
+  "asymmetry_ci_pts": [
+    50.56123624580351,
+    53.90252588548999
+  ],
+  "structure_joint_chi2": 1274.462591608089,
+  "structure_joint_p": 1.6376025118257656e-262,
+  "structure_n": 25318,
+  "structure_pseudo_r2": 0.5328981723938395,
+  "standardised_punt_rate_by_field_zone": {
+    "Own 1-20": "field_zone",
+    "Own 21-40": "field_zone",
+    "Own 41-50": "field_zone",
+    "Opp 49-35": "field_zone",
+    "Opp 34-1": "field_zone"
+  },
+  "seasons_with_significant_asymmetry": 12,
+  "seasons_total": 12,
+  "punt_rate_when_go_better_first": 0.7105263157894737,
+  "punt_rate_when_go_better_last": 0.3670212765957447,
+  "team_seasons": 384,
+  "wins_forfeited_headline_tau": 72.4,
+  "wins_forfeited_per_team_season_tau": 0.19,
+  "wins_forfeited_all_tau0": 123.9,
+  "wins_forfeited_per_team_season_all_tau0": 0.32,
+  "team_punt_rate_min": 0.23076923076923078,
+  "team_punt_rate_max": 0.6363636363636364,
+  "team_punt_rate_min_team": "PHI",
+  "team_punt_rate_max_team": "HOU",
+  "team_homogeneity_chi2": 43.98765652737994,
+  "team_homogeneity_p": 0.061163384794391824
+}

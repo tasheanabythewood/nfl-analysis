@@ -1,0 +1,17 @@
+# Data is reproducible from src/ingest.py plus the committed manifests.
+data/raw/*.parquet
+data/raw/*.rds
+data/interim/
+data/*.duckdb
+
+# Manifests ARE committed. They are the provenance record.
+!data/raw/*.manifest.json
+
+__pycache__/
+*.pyc
+.env
+.ipynb_checkpoints/
+.spyproject/
+
+# Personal notes, never published
+resume_project_notes.md
