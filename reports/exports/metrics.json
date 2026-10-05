@@ -23,16 +23,16 @@
     50.56123624580351,
     53.90252588548999
   ],
-  "structure_joint_chi2": 1274.462591608089,
-  "structure_joint_p": 1.6376025118257656e-262,
+  "structure_joint_chi2": 1261.2259081956145,
+  "structure_joint_p": 1.14575627340641e-259,
   "structure_n": 25318,
-  "structure_pseudo_r2": 0.5328981723938395,
+  "structure_pseudo_r2": 0.5347395222824147,
   "standardised_punt_rate_by_field_zone": {
-    "Own 1-20": "field_zone",
-    "Own 21-40": "field_zone",
-    "Own 41-50": "field_zone",
-    "Opp 49-35": "field_zone",
-    "Opp 34-1": "field_zone"
+    "Own 1-20": "96.8%",
+    "Own 21-40": "92.6%",
+    "Own 41-50": "84.2%",
+    "Opp 49-35": "59.3%",
+    "Opp 34-1": "7.1%"
   },
   "seasons_with_significant_asymmetry": 12,
   "seasons_total": 12,

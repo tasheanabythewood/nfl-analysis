@@ -152,9 +152,9 @@ and show the query.
    (difference 52.3 points, CI 50.6 to 53.9). It persists at a 4-point margin
    (31.4 vs 0.3 percent).
 2. **Structure.** With the go advantage held fixed by a spline, field zone,
-   distance, score and quarter still predict punting (joint Wald chi2 = 1,274,
+   distance, score and quarter still predict punting (joint Wald chi2 = 1,261,
    df 15, p < 1e-200). Field position dominates: at the same +3 point edge, the
-   predicted punt rate is 92.9 percent at own 21-40 and 60.5 percent at
+   predicted punt rate is 92.6 percent at own 21-40 and 59.3 percent at
    opponent 49-35.
 3. **Persistence.** The asymmetry is significant in all 12 seasons. It has
    halved: the punt rate when going was better by 2+ fell from 71 percent (2014)
@@ -168,6 +168,26 @@ team-season; 0.30 counting every positive edge.
 not distinguishable from chance (chi2 p = 0.061). **Do not rank or name teams.**
 **Robustness:** 7.4 to 9.5 percent across variants; comparing go to the best of
 punt and field goal gives 9.1 percent.
+
+---
+
+## Traps this project already hit
+
+- **An unconstrained patsy `cr()` spline is collinear with the intercept.** Its
+  basis sums to 1 in every row. The logit still converges with the same
+  likelihood, but the clustered covariance is computed on a singular design, so
+  Wald statistics changed with row order (809 to 980 for one term). Use
+  `constraints='center'`; `src/analysis.py` now asserts the design is full rank.
+- **Do not mix pip and conda for compiled libraries.** A pip scipy over conda's
+  MKL crashed `scipy.linalg` (Windows 0xc06d007f). The environment is all
+  conda-forge with OpenBLAS.
+- **matplotlib's font DLL fails to load after duckdb and scipy in one process**
+  on this machine. `src.run_all` runs each step in its own process.
+- **`git add -A` picks up anything in the folder.** A personal notes file was
+  committed and had to be scrubbed with a force-push. Check `git status`
+  immediately before every commit.
+- **Team-level rates look meaningful and are not** (chi2 p = 0.061). Do not rank
+  teams.
 
 ---
 
@@ -186,7 +206,7 @@ punt and field goal gives 9.1 percent.
   the persistence of a 4-point gap makes pure model error less plausible.
 - **Opponent 34 and in is a selected population.** Field goals are excluded from
   the go-vs-punt comparison, so the remaining punts there are unusual. The
-  standardised rate for that zone (7.4 percent) is not comparable to the others.
+  standardised rate for that zone (7.1 percent) is not comparable to the others.
 
 ---
 

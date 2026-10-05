@@ -3,7 +3,7 @@
 - Snapshot date: 2026-10-04
 - Seasons: 2014 to 2025
 - Fourth-down rows in manifest: 50,095
-- Log generated: 2026-10-04T18:46:22
+- Log generated: 2026-10-05T12:47:52
 
 This log describes the data and the decision coding. It contains no findings about coaching. Interpretation begins in step 5.
 
@@ -138,13 +138,13 @@ GROUP BY 1, 2 ORDER BY 1, snaps DESC
 ```
   decision     series_result  snaps
 (excluded)        First down     61
-(excluded)       End of half      1
 (excluded) Turnover on downs      1
+(excluded)       End of half      1
 field_goal        Field goal   9982
 field_goal Missed field goal   1687
 field_goal        First down    113
-field_goal     Opp touchdown     11
 field_goal          QB kneel     11
+field_goal     Opp touchdown     11
 field_goal       End of half      2
         go        First down   3783
         go Turnover on downs   3437
@@ -251,16 +251,16 @@ ORDER BY random() LIMIT 10
 
 ```
         game_id  play_id   decision  qtr  game_seconds_remaining                                                                                          description
- 2016_11_MIA_LA   3981.0         go  4.0                    10.0              (:10) 16-J.Goff pass short right to 88-L.Kendricks to MIA 47 for 5 yards (47-K.Alonso).
- 2018_14_BAL_KC   5053.0         go  5.0                    99.0           (1:39) (Shotgun) 3-R.Griffin III pass incomplete deep left to 83-W.Snead IV (23-K.Fuller).
-2025_04_NYJ_MIA   4153.0       punt  4.0                    13.0 (:13) 16-J.Bailey punts 44 yards to NYJ 1, impetus ends at NYJ 1, Center-49-J.Cardona, downed by MIA
-2017_10_CIN_TEN   4291.0         go  4.0                    15.0 (:15) (Shotgun) 14-A.Dalton pass short left to 25-G.Bernard pushed ob at CIN 37 for 15 yards (55-J.B
- 2015_13_CAR_NO   4657.0         go  4.0                    15.0                                  (:15) (Shotgun) 9-D.Brees pass incomplete deep right to 10-B.Cooks.
-2022_13_WAS_NYG   4600.0 field_goal  5.0                     5.0         (:05) 9-G.Gano 58 yard field goal is No Good, Short, Center-58-C.Kreiter, Holder-6-J.Gillan.
-2014_12_CIN_HOU   4377.0         go  4.0                     2.0                            (:02) (Shotgun) 15-R.Mallett pass incomplete short middle to 88-G.Graham.
-2019_16_CIN_MIA   5024.0       punt  5.0                   470.0 (7:50) (Punt formation) 2-M.Haack punts 49 yards to CIN 5, Center-46-T.Pepper, downed by MIA-35-W.Ai
-2016_08_WAS_CIN   4922.0       punt  5.0                   420.0 (7:00) (Punt formation) 10-K.Huber punts 41 yards to WAS 7, Center-46-C.Harris, fair catch by 80-J.C
- 2019_12_DAL_NE   4107.0         go  4.0                     5.0                                                        (:05) 12-T.Brady pass incomplete short right.
+2025_11_CIN_PIT   4387.0         go  4.0                    10.0                (:10) (Shotgun) 16-J.Flacco pass incomplete short right to 5-T.Higgins (42-J.Pierre).
+2017_04_JAX_NYJ   4781.0 field_goal  5.0                    32.0            (:32) 7-C.Catanzaro 41 yard field goal is GOOD, Center-42-T.Hennessy, Holder-4-L.Edwards.
+ 2022_12_TB_CLE   4366.0       punt  5.0                   174.0         (2:54) 5-J.Camarda punts 36 yards to CLE 29, Center-97-Z.Triner, downed by TB-79-P.O'Connor.
+2022_10_MIN_BUF   4940.0 field_goal  5.0                   225.0               (3:45) 1-G.Joseph 33 yard field goal is GOOD, Center-42-A.DePaola, Holder-14-R.Wright.
+ 2020_08_NO_CHI   4604.0       punt  5.0                   419.0 (6:59) 6-T.Morstead punts 31 yards to CHI 19, Center-49-Z.Wood. 82-Dw.Harris to CHI 19 for no gain (
+2019_13_PHI_MIA   4397.0       punt  4.0                    15.0        (:15) (Punt formation) 2-M.Haack punts 28 yards to PHI 31, Center-46-T.Pepper, out of bounds.
+2015_08_IND_CAR   4855.0 field_goal  5.0                   327.0                  (5:27) 9-G.Gano 52 yard field goal is GOOD, Center-44-J.Jansen, Holder-8-B.Nortman.
+ 2021_05_GB_CIN   4092.0 field_goal  5.0                   120.0             (2:00) 2-M.Crosby 49 yard field goal is GOOD, Center-43-H.Bradley, Holder-7-C.Bojorquez.
+ 2018_01_SF_MIN   4096.0         go  4.0                     2.0                                             (:02) (Shotgun) 8-K.Cousins pass incomplete short right.
+2014_09_WAS_MIN   4340.0       punt  4.0                    12.0       (:12) (Punt formation) 18-J.Locke punts 36 yards to end zone, Center-46-C.Loeffler, Touchback.
 ```
 
 ## V12. nfl4th rows that do not appear in play-by-play

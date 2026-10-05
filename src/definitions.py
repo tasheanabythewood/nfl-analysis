@@ -27,7 +27,7 @@ NOT_A_SNAP_SQL = "play_type IS NULL OR play_type IN ('qb_kneel', 'qb_spike')"
 #     infraction                           -> unknown intent, excluded
 # Penalised snaps (play_type = 'no_play') take their intent from the formation
 # or the play named in the description, because the play itself did not count.
-# Without the "punts" / "yard field goal" wording, ~250 punts and kicks with an
+# Without the "punts" / "yard field goal" wording, 195 punts and kicks with an
 # accepted post-snap penalty were dropped (validation V09, 2026-10-04).
 DECISION_SQL = r"""
 CASE

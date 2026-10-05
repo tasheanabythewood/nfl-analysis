@@ -86,14 +86,14 @@ A team following win probability would punt almost always left of zero and almos
 
 ```
   situation term  df  Wald chi2  p-value
-      field_zone   4      985.1 6.2e-212
-   distance_band   5      513.8 8.4e-109
-     score_state   4      169.1  1.7e-35
-          period   2       19.1  7.2e-05
-all four jointly  15     1274.5 1.6e-262
+      field_zone   4      967.3 4.4e-208
+   distance_band   5      511.1 3.2e-108
+     score_state   4      161.7  6.3e-34
+          period   2       19.4  6.3e-05
+all four jointly  15     1261.2 1.1e-259
 ```
 
-n = 25,318, pseudo R-squared = 0.533.
+n = 25,318, pseudo R-squared = 0.535.
 
 ## 2b. Same edge, different situation
 
@@ -101,25 +101,25 @@ n = 25,318, pseudo R-squared = 0.533.
 
 ```
          term          level predicted punt rate at +3 pts
-   field_zone       Own 1-20                         96.9%
-   field_zone      Own 21-40                         92.9%
-   field_zone      Own 41-50                         84.7%
-   field_zone      Opp 49-35                         60.5%
-   field_zone       Opp 34-1                          7.4%
-distance_band         1 yard                         58.6%
-distance_band        2 yards                         77.9%
-distance_band        3 yards                         82.4%
+   field_zone       Own 1-20                         96.8%
+   field_zone      Own 21-40                         92.6%
+   field_zone      Own 41-50                         84.2%
+   field_zone      Opp 49-35                         59.3%
+   field_zone       Opp 34-1                          7.1%
+distance_band         1 yard                         58.9%
+distance_band        2 yards                         78.2%
+distance_band        3 yards                         82.5%
 distance_band      4-5 yards                         85.4%
-distance_band      6-9 yards                         90.4%
-distance_band      10+ yards                         89.6%
-  score_state    Trailing 9+                         75.7%
-  score_state   Trailing 1-8                         82.9%
-  score_state           Tied                         87.4%
-  score_state    Leading 1-8                         86.4%
-  score_state     Leading 9+                         82.8%
-       period     First half                         84.3%
-       period  Third quarter                         85.8%
-       period Fourth quarter                         82.1%
+distance_band      6-9 yards                         90.2%
+distance_band      10+ yards                         88.3%
+  score_state    Trailing 9+                         75.4%
+  score_state   Trailing 1-8                         82.5%
+  score_state           Tied                         87.1%
+  score_state    Leading 1-8                         86.0%
+  score_state     Leading 9+                         81.9%
+       period     First half                         83.9%
+       period  Third quarter                         85.4%
+       period Fourth quarter                         81.5%
 ```
 
 Under H0 each block would be flat. Differences are the situation itself driving the decision.
@@ -129,19 +129,19 @@ Under H0 each block would be flat. Differences are the situation itself driving 
 *Question:* Asymmetry at tau = 2.0 by season, with game-clustered 95% CIs.
 
 ```
- season  snaps_go_better  punt_rate_when_go_better  go_rate_when_punt_better  asymmetry_pts  ci_lo_pts  ci_hi_pts  share_of_punts_go_better
-   2014              342                     0.711                     0.006         70.406     65.604     74.914                     0.122
-   2015              340                     0.688                     0.000         68.824     63.304     73.970                     0.111
-   2016              327                     0.667                     0.005         66.191     60.192     71.864                     0.107
-   2017              337                     0.685                     0.007         67.840     62.929     72.426                     0.112
-   2018              316                     0.627                     0.002         62.497     57.021     68.285                     0.104
-   2019              285                     0.477                     0.002         47.562     41.454     53.570                     0.076
-   2020              306                     0.441                     0.000         44.118     38.518     49.523                     0.085
-   2021              348                     0.434                     0.000         43.391     38.216     48.925                     0.085
-   2022              401                     0.456                     0.003         45.344     40.166     50.826                     0.096
-   2023              364                     0.420                     0.003         41.762     36.708     46.902                     0.078
-   2024              343                     0.367                     0.003         36.421     30.606     41.895                     0.072
-   2025              376                     0.367                     0.002         36.533     31.428     41.424                     0.082
+ season  snaps_go_better  punt_rate_when_go_better  punt_rate_ci_lo  punt_rate_ci_hi  go_rate_when_punt_better  asymmetry_pts  ci_lo_pts  ci_hi_pts  share_of_punts_go_better
+   2014              342                     0.711            0.664            0.756                     0.006         70.406     65.604     74.914                     0.122
+   2015              340                     0.688            0.633            0.740                     0.000         68.824     63.304     73.970                     0.111
+   2016              327                     0.667            0.608            0.724                     0.005         66.191     60.192     71.864                     0.107
+   2017              337                     0.685            0.637            0.731                     0.007         67.840     62.929     72.426                     0.112
+   2018              316                     0.627            0.572            0.684                     0.002         62.497     57.021     68.285                     0.104
+   2019              285                     0.477            0.417            0.537                     0.002         47.562     41.454     53.570                     0.076
+   2020              306                     0.441            0.385            0.495                     0.000         44.118     38.518     49.523                     0.085
+   2021              348                     0.434            0.382            0.489                     0.000         43.391     38.216     48.925                     0.085
+   2022              401                     0.456            0.406            0.511                     0.003         45.344     40.166     50.826                     0.096
+   2023              364                     0.420            0.369            0.472                     0.003         41.762     36.708     46.902                     0.078
+   2024              343                     0.367            0.308            0.421                     0.003         36.421     30.606     41.895                     0.072
+   2025              376                     0.367            0.317            0.416                     0.002         36.533     31.428     41.424                     0.082
 ```
 
 Seasons where the CI excludes zero: 12 of 12.

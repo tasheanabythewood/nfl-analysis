@@ -190,10 +190,15 @@ def main() -> None:
                 "almost never right of it.")
 
     # --- 2. Structure --------------------------------------------------------
-    formula = ("punted ~ cr(go_vs_punt_pp, df=5) + "
+    # constraints='center' is required: an unconstrained cr() basis sums to 1 in
+    # every row, is collinear with the intercept, and makes the clustered
+    # covariance (and every Wald test) depend on row order. Found 2026-10-05.
+    formula = ("punted ~ cr(go_vs_punt_pp, df=5, constraints='center') + "
                + " + ".join(f"C({c})" for c in SITUATION_TERMS) + " + C(season)")
     fit = smf.logit(formula, data=pop).fit(
         disp=False, maxiter=200, cov_type="cluster", cov_kwds={"groups": pd.factorize(pop.game_id)[0]})
+    exog = fit.model.exog
+    assert np.linalg.matrix_rank(exog) == exog.shape[1], "structure model design is rank deficient"
     names = fit.params.index
     wald_rows = []
     for term in SITUATION_TERMS:
@@ -234,7 +239,7 @@ def main() -> None:
                 std,
                 "Under H0 each block would be flat. Differences are the situation itself "
                 "driving the decision.")
-    fz = std[std.term == "field_zone"].set_index("level").iloc[:, 0]
+    fz = std[std.term == "field_zone"].set_index("level").iloc[:, -1]
     metrics["standardised_punt_rate_by_field_zone"] = fz.to_dict()
 
     # --- 3. Persistence ------------------------------------------------------
@@ -247,10 +252,12 @@ def main() -> None:
         draws = cluster_bootstrap(s, ["a", "go_better", "c", "punt_better"], lambda a, b, c, e: a / b - c / e)
         r1, r2 = s.a.sum() / s.go_better.sum(), s.c.sum() / s.punt_better.sum()
         lo, hi = ci(draws)
+        r1_lo, r1_hi = ci(cluster_bootstrap(s, ["a", "go_better"], lambda a, b: a / b))
         sp = s[s.punted == 1]
-        rows.append((season, int(s.go_better.sum()), r1, r2, 100 * (r1 - r2), 100 * lo, 100 * hi,
-                     (sp.go_vs_punt_pp > tau).mean()))
+        rows.append((season, int(s.go_better.sum()), r1, r1_lo, r1_hi, r2,
+                     100 * (r1 - r2), 100 * lo, 100 * hi, (sp.go_vs_punt_pp > tau).mean()))
     trend = pd.DataFrame(rows, columns=["season", "snaps_go_better", "punt_rate_when_go_better",
+                                        "punt_rate_ci_lo", "punt_rate_ci_hi",
                                         "go_rate_when_punt_better", "asymmetry_pts",
                                         "ci_lo_pts", "ci_hi_pts", "share_of_punts_go_better"])
     trend.to_csv(EXPORTS / "season_trend.csv", index=False)

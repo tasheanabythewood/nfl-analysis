@@ -1,20 +1,20 @@
 term,level,predicted punt rate at +3 pts
-field_zone,Own 1-20,96.9%
-field_zone,Own 21-40,92.9%
-field_zone,Own 41-50,84.7%
-field_zone,Opp 49-35,60.5%
-field_zone,Opp 34-1,7.4%
-distance_band,1 yard,58.6%
-distance_band,2 yards,77.9%
-distance_band,3 yards,82.4%
+field_zone,Own 1-20,96.8%
+field_zone,Own 21-40,92.6%
+field_zone,Own 41-50,84.2%
+field_zone,Opp 49-35,59.3%
+field_zone,Opp 34-1,7.1%
+distance_band,1 yard,58.9%
+distance_band,2 yards,78.2%
+distance_band,3 yards,82.5%
 distance_band,4-5 yards,85.4%
-distance_band,6-9 yards,90.4%
-distance_band,10+ yards,89.6%
-score_state,Trailing 9+,75.7%
-score_state,Trailing 1-8,82.9%
-score_state,Tied,87.4%
-score_state,Leading 1-8,86.4%
-score_state,Leading 9+,82.8%
-period,First half,84.3%
-period,Third quarter,85.8%
-period,Fourth quarter,82.1%
+distance_band,6-9 yards,90.2%
+distance_band,10+ yards,88.3%
+score_state,Trailing 9+,75.4%
+score_state,Trailing 1-8,82.5%
+score_state,Tied,87.1%
+score_state,Leading 1-8,86.0%
+score_state,Leading 9+,81.9%
+period,First half,83.9%
+period,Third quarter,85.4%
+period,Fourth quarter,81.5%
